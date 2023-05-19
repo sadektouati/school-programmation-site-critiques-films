@@ -1,0 +1,54 @@
+Partie A
+
+a) MOCODO
+
+PRODUCTEUR: id, nom, prenom
+PRODUIRE, 11 FILM, 0N PRODUCTEUR
+REALISER, 0N REALISATEUR, 11 FILM
+REALISATEUR: id, nom, prenom
+FAVORISER, 01 USAGER, 0N FILM
+
+GENRE: id, nom
+ETRE DE GENRE, 11 FILM, 0N GENRE
+FILM:  id, titre, annee de production, synopsis court, duree, couleur
+CRITIQUER, 0N USAGER, 0N FILM, 0N PLATFORME: texte, date, note
+USAGER: id, nom, prenom, nom usager, mot de passe, couriel
+
+ACTEUR: id, nom, prenom
+JOUER, 0N ACTEUR, 1N FILM: role
+PLATFORME: id, nom
+
+
+Pour le model conceptuel je vais representer tout objet (physique ou abstrait ou personne) de qui je dois preserver des données ansi que tous les evenements (relation) qui arrive entre ces objets et les donnés relatives a ces relations la.
+
+Il y a des films dans le systeme, chaque film a des informations qui sont propre a lui seul donc on crée une entité FILM avec ces attributs la: titre, annee de production, synopsis court, duree, couleur, j'ai y rajouté un identifiant artificiel parce que c'est plus pratique. 
+
+Il y des producteurs dans le systeme, chacun a un nom et prénom et il est independent de toute autre entite du systeme. Je crée une entité nomée PRODUCTEUR. J'ai y rajouté un identifiant artificiel.
+
+Il faut une association PRODUIRE entre FILM et PRODUCTEUR sa cardinalité est 1:N puisque un film doit etre produit par un producteur et un producteur peut produire zero ou plusieurs films.
+
+
+Il y des realisateurs dans le systeme, chacun a un nom et prénom et il est independent de toute autre entite du systeme. Donc en crée une entité nomée REALISATEUR. J'ai rajouté un identifiant artificiel.
+
+Il faut une association REALISER entre FILM et REALISATEUR sa cardinalité est 1:N puisque un film doit etre realisé par un realisateur et un realisateur peut realiser zero ou plusieurs films.
+
+
+Il y a aussi des acteurs dans le systeme et chaque acteur, chacun a un nom et prénom. Acteur est independent de toute autre entité du systéme donc je crée une entité ACTEUR pour le representer. J'ai rajouté un identifiant artificiel.
+
+Il faut une association JOUIR entre FILM et ACTEUR sa cardinalité est N:M parce que un acteur peux jouir dans zero ou plusieurs films et un film peut avoir un ou plusieurs acteurs.
+
+
+Suivant la regle 8 vu dans le cours, concernant l'information de genre de film, c'est une liste limité de valeurs donc je crée une entité a part pour elle appelée GENRE, elle comporte: nom, et j'ai rajouté un identifiant artificiel.
+
+Il faut ajouter une association ETRE DE GENRE entre FILM et GENRE sa cardinalité est 1:N, puisque un film doit avoir un genre et un genre peut etre de zero ou plusieurs films.
+
+
+Il y a des usager dans les systeme et ils ont des informations independentes (nom usager, couriel, mot de passe, nom, prenom) de toute autre entité dans le systeme, donc je crée une entité apart pour elle, nommée: USAGER. je rajoute un identifiant artificiel.
+
+Il faut une association FAVORISER entre FILM et USAGER sa cardinalité est 1:N un usager peut favoriser un seul et un seul film et un film peut etre favoris par zero ou plusieurs usager.
+
+
+Il y a une liste de platformes dans le systeme, ou l'usager peut choisir depuis une liste pour faire une critique. Donc je crée une entité apart pour la representée dans le MCD, elle est nomé PLATFORME, elle a comme attribut: nom et un identifiant artificiel.
+
+Il faut une association CRITIQUER entre FILM et USAGER et PLATFORME  et elle a des attributs: texte, date, note. (Je peux faire une entité CRITIQUE mais ça va rendre le MCD inutilement compliqué), sa cardinalité est N:M parce que c'est une association trinaire.
+
