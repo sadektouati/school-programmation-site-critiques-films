@@ -7,7 +7,8 @@ select count(*) nombre_film from film where producteur_id = 1 and annee_de_produ
 select distinct nom, prenom from film join producteur on(producteur.id=producteur_id) where couleur and genre_id=(select id from genre where nom = 'Science-Fiction');
 
 #3) 
-select titre, role from film join jouer on (film.id=film_id) join acteur on (acteur.id=acteur_id) where annee_de_production not between 2000 and 2010 and nom='Assidik' and prenom='Abu Bakre'; ## on rajoute  order by film.id pour que les roles s'affiche successif
+select titre, role from film join jouer on (film.id=film_id) join acteur on (acteur.id=acteur_id) where annee_de_production not between 2000 and 2010 and nom='Assidik' and prenom='Abu Bakre'; 
+## on rajoute  order by film.id pour que les roles s'affiche successif
 
 #4)
 select texte, note from critiquer where year(date) = 2021 and film_id=(select id from film where titre='titre:  El Habachi - Azahraa Drame');
